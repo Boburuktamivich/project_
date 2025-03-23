@@ -1,6 +1,7 @@
 import time
 import json
-
+import random
+from kungilochar import latifalar, yhq_qoidalari, fitnes_malumotlari, donishmand_maslahatlari, taomlar_retsepti, motivations, positive_words
 def yuklash():
     fayl_nomi = 'kontaktlar.json'
     try:
@@ -618,15 +619,65 @@ while True:
                       print("Notug'ri buyruq! qayta urinib ko'ring!")
 
 
+            elif a == 4:
+                while True:
+                    print("\n1 - latifa")
+                    print("2 - YHQ")
+                    print("3 - Fitness")
+                    print("4 - Kayfiyat")
+                    print("5 - Donishmand maslahati")
+                    print("6 - Dunyo taomlari")
+                    print("7 - motivatsiya")
+                    print("8 - Chiqish")
 
+                    f = input(">>> ")
+
+                    if f == '1':
+                        print("Kulgili latifa aytib beraymi?")
+                        time.sleep(5)
+                        print(random.choice(latifalar))
+
+                    elif f == '2':
+                        print("yo'l harakati qoidasi!...")
+                        time.sleep(3)
+                        print(random.choice(yhq_qoidalari))
+                    
+                    elif f == '3':
+                        print("Fitness haqida foydali ma'lumot... ")
+                        time.sleep(3)
+                        print(random.choice(fitnes_malumotlari))
+                    
+                    elif f == '4':
+                        print("Yaxshi kayfiyat ulashuvchi so'z... ")
+                        time.sleep(3)
+                        print(random.choice(positive_words))
+                    
+                    elif f == '5':
+                        print("Donishmand maslahati... ")
+                        time.sleep(3)
+                        print(random.choice(donishmand_maslahatlari))
+                    
+                    elif f == '6':
+                        print("Mazali taom tayyorlash... ")
+                        time.sleep(3)
+                        print(random.choice(taomlar_retsepti))
+                    
+                    elif f == '7':
+                        print("Mativatsiya keremi... ")
+                        time.sleep(3)
+                        print(random.choice(motivations))
+
+                    elif f == '8':
+                        break
+                    else:
+                        print("Noto'g'ri buyruq! qayta o'rinib ko'ring")
+
+
+
+
+            
             elif a == 11:
                 break
     elif move == 3:
         print("Dastur tugadi!")       
         break
-
-
-
-
-
-
