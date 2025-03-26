@@ -1,7 +1,9 @@
 import time
 import json
 import random
-from kungilochar import latifalar, yhq_qoidalari, fitnes_malumotlari, donishmand_maslahatlari, taomlar_retsepti, motivations, positive_words
+import ob_havo
+from astrologiya import astrology_facts
+from kungilochar import latifalar, yhq_qoidalari, fitnes_malumotlari, donishmand_maslahatlari, taomlar_retsepti, motivations, positive_words, yangiliklar
 def yuklash():
     fayl_nomi = 'kontaktlar.json'
     try:
@@ -25,8 +27,8 @@ while True:
     print("2 - Sozlamalar")
     print("3 - chiqish")
 
-    move = int(input(">>> "))
-    if move == 1:
+    move = input(">>> ")
+    if move == '1':
         while True:
             print("\n1 - Balans")
             print("2 - Boshqa")
@@ -40,9 +42,9 @@ while True:
             print("10 - Info")
             print("11 - chiqish")
 
-            a = int(input(">>> "))
+            a = input(">>> ")
 
-            if a == 1:
+            if a == '1':
                 #Balans menyu
                 while True:
                     print("\n1 - Hisobni tekshirish")
@@ -51,16 +53,16 @@ while True:
                     print("4 - Internet")
                     print("5 - chiqish")
 
-                    b = int(input(">>> "))
-                    if b == 1:
+                    b = input(">>> ")
+                    if b == '1':
                         print("Kuting... ")
                         time.sleep(3)
                         print(f"sizning hisob ta'rifingiz: {hisob}")
-                    elif b == 2:
+                    elif b == '2':
                         print("Kuting... ")
                         time.sleep(3)
                         print(f"sizning trafik qoldig'ingiz: {trafik}")
-                    elif b == 3:
+                    elif b == '3':
                         while True:
                           print("\n1 - 2500 so'm")
                           print("2 - 5 000 so'm")
@@ -69,8 +71,8 @@ while True:
                           print("5 - Boshqa")
                           print("6 - chiqish")
 
-                          qarz = int(input(">>> "))
-                          if qarz == 1:
+                          qarz = input(">>> ")
+                          if qarz == '1':
                               surov = input("Buyurtma tasdiqlansinmi? (ha/yuq): ")
                               if surov == 'ha':
                                   print("Kuting... ")
@@ -80,7 +82,7 @@ while True:
                               else:
                                   print("Rad etildi!")
 
-                          elif qarz == 2:
+                          elif qarz == '2':
                               surov = input("Buyrutma tasdiqlansinmi? (ha/yuq): ")
                               if surov == 'ha':
                                   print("Kuting... ")
@@ -90,7 +92,7 @@ while True:
                               else:
                                   print("Rad etildi!")
 
-                          elif qarz == 3:
+                          elif qarz == '3':
                               surov = input("Buyurtma tasdiqlansinmi? (ha/yuq): ")
                               if surov == 'ha':
                                   print("Kuting... ")
@@ -100,7 +102,7 @@ while True:
                               else:
                                   print("Rad etildi!")
 
-                          elif qarz == 4:
+                          elif qarz == '4':
                               surov = input("Buyurtma tasdiqlansinmi? (ha/yuq): ")
                               if surov == 'ha':
                                   print("Kuting... ")
@@ -110,7 +112,7 @@ while True:
                               else:
                                   print("Rad etildi!")
                         
-                          elif qarz == 5:
+                          elif qarz == '5':
                               miqdor = int(input("miqdoqni kiriting>>> "))
                               surov =  input("Buyurtma tasdiqlansinmi? (ha/yuq): ")
                               if surov == 'ha':
@@ -120,19 +122,19 @@ while True:
                                   print(f"sizning hisobingizga {miqdor} so'm tushdi")
                               else:
                                   print("Rad etildi!")
-                          elif qarz == 6:
+                          elif qarz == '6':
                               break
                           else:
                               print("Noto'g'ri buyruq! qayta kiriting!")
                     
-                    elif b == 4:
+                    elif b == '4':
                         while True:
                             print("\n1 - Oylik")
                             print("2 - Kunlik")
                             print("3 - Chiqish")
 
-                            c = int(input(">>> "))
-                            if c == 1:
+                            c = input(">>> ")
+                            if c == '1':
                                 while True:
                                     print("\n1 - 300 mb")
                                     print("2 - 500 mb")
@@ -146,8 +148,8 @@ while True:
                                     print("10 - 50000 mb")
                                     print("11 - chiqish")
                                     
-                                    tanlov = int(input('>>> '))
-                                    if tanlov == 1:
+                                    tanlov = input('>>> ')
+                                    if tanlov == '1':
                                         print("To'plam narxi - 8000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -163,7 +165,7 @@ while True:
                                         else:
                                             print("Rad etildi")
 
-                                    elif tanlov == 2:
+                                    elif tanlov == '2':
                                         print("To'plam narxi - 9000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -179,7 +181,7 @@ while True:
                                         else:
                                             print("Rad etildi")
 
-                                    elif tanlov == 3:
+                                    elif tanlov == '3':
                                         print("To'plam narxi - 11000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -195,7 +197,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 4:
+                                    elif tanlov == '4':
                                         print("To'plam narxi - 17000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -211,7 +213,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 5:
+                                    elif tanlov == '5':
                                         print("To'plam narxi - 25 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -227,7 +229,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 6:
+                                    elif tanlov == '6':
                                         print("To'plam narxi - 33 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -243,7 +245,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 7:
+                                    elif tanlov == '7':
                                         print("To'plam narxi - 50000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -259,7 +261,7 @@ while True:
                                         else:
                                             print("Rad etildi")
 
-                                    elif tanlov == 8:
+                                    elif tanlov == '8':
                                         print("To'plam narxi - 55 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -275,7 +277,7 @@ while True:
                                         else:
                                             print("Rad etildi")
 
-                                    elif tanlov == 9:
+                                    elif tanlov == '9':
                                         print("To'plam narxi - 65 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -291,7 +293,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 10:
+                                    elif tanlov == '10':
                                         print("To'plam narxi - 75 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -306,12 +308,12 @@ while True:
                                                 print("Yetarli mablag' mavjud emas! hisobingizni to'ldiring!")
                                         else:
                                             print("Rad etildi")
-                                    elif tanlov == 11:
+                                    elif tanlov == '11':
                                         break
                                     else:
                                         print("NOto'g'ri buyruq! Qayta urinib ko'ring!")
                                     
-                            if c == 2:
+                            if c == '2':
                                 while True:
                                     print("\n1 - 200 mb")
                                     print("2 - 300 mb")
@@ -323,8 +325,8 @@ while True:
                                     print("8 - 10000 mb")
                                     print("9 - Chiqish")
 
-                                    tanlov = int(input('>>> '))
-                                    if tanlov == 1:
+                                    tanlov = input('>>> ')
+                                    if tanlov == '1':
                                         print("To'plam narxi - 2 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -340,7 +342,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 2:
+                                    elif tanlov == '2':
                                         print("To'plam narxi - 3 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -356,7 +358,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                         
-                                    elif tanlov == 3:
+                                    elif tanlov == '3':
                                         print("To'plam narxi - 5 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -372,7 +374,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 4:
+                                    elif tanlov == '4':
                                         print("To'plam narxi - 10 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -388,7 +390,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 5:
+                                    elif tanlov == '5':
                                         print("To'plam narxi - 20 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -404,7 +406,7 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 6:
+                                    elif tanlov == '6':
                                         print("To'plam narxi - 30 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -420,7 +422,7 @@ while True:
                                         else:
                                             print("Rad etildi")
 
-                                    elif tanlov == 7:
+                                    elif tanlov == '7':
                                         print("To'plam narxi - 50 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -436,7 +438,7 @@ while True:
                                         else:
                                             print("Rad etildi")
 
-                                    elif tanlov == 8:
+                                    elif tanlov == '8':
                                         print("To'plam narxi - 100 000 so'm")
                                         surov = input("buyurtma tasdiqlansinmi? (ha/yuq): ").lower()
                                         if surov == 'ha':
@@ -452,20 +454,20 @@ while True:
                                         else:
                                             print("Rad etildi")
                                     
-                                    elif tanlov == 9:
+                                    elif tanlov == '9':
                                         break
                                     else:
                                         print("Noto'g'ri buyruq! qayta kiriting")
 
-                            if c == 3:
+                            if c == '3':
                                 break        
 
-                    elif b == 5:
+                    elif b == '5':
                         break
                     else:
                         print("Noto'g'ri buyruq! qayta kiriting!")
             
-            elif a == 2:
+            elif a == '2':
                 while True:
                     print("\n1 - Sizga qo'ng'iroq qilishdi")
                     print('2 - AntiAON')
@@ -569,7 +571,7 @@ while True:
                         break
                     else:
                         print("Noto'g'ri buyruq! qayta kiriting!")
-            elif a == 3:
+            elif a == '3':
 
                 while True:
                   print("\n1 - Kontakt qo'shish")
@@ -577,9 +579,9 @@ while True:
                   print("3 - Kontaktni o'chirish")
                   print("4 - Chiqish")
 
-                  e = int(input(">>> "))
+                  e = input(">>> ")
 
-                  if e == 1:
+                  if e == '1':
                     ism = input("Ismni kiriting: ")
                     tel = input("Raqamni kiriting: ")
                     for i in tel:
@@ -595,7 +597,7 @@ while True:
                         print(f"{ism.title()} kontaktlar ro‘yxatiga kiritildi!\n")
                         break
 
-                  elif e == 2:
+                  elif e == '2':
                     if not kontaktlar:
                       print("Kontaktlaringiz yo‘q!")
                     else:
@@ -603,7 +605,7 @@ while True:
                       for index, (ism, tel) in enumerate(kontaktlar.items(), 1):
                           print(f"{index}. {ism} - {tel}")
 
-                  elif e == 3:
+                  elif e == '3':
                     if not kontaktlar:
                       print("O‘chirish uchun kontakt yo‘q!")
                     else:
@@ -613,13 +615,13 @@ while True:
                       print(f"{uchirish} kontaktlaringizdan o‘chirildi!")
                     else:
                       print("Bunday ism kontaktlaringizda yo‘q!")
-                  elif e == 4:
+                  elif e == '4':
                       break
                   else:
                       print("Notug'ri buyruq! qayta urinib ko'ring!")
 
 
-            elif a == 4:
+            elif a == '4':
                 while True:
                     print("\n1 - latifa")
                     print("2 - YHQ")
@@ -633,51 +635,106 @@ while True:
                     f = input(">>> ")
 
                     if f == '1':
-                        print("Kulgili latifa aytib beraymi?")
-                        time.sleep(5)
-                        print(random.choice(latifalar))
+                        print("Kuting... ")
+                        time.sleep(3)
+                        if trafik >= 20:
+                          trafik -= 20
+                          print(random.choice(latifalar))
+                        else:
+                          print("Sizda mb mavjud emas! Enternet paket sotib oling!")
 
                     elif f == '2':
-                        print("yo'l harakati qoidasi!...")
+                        print("Kuting... ")
                         time.sleep(3)
-                        print(random.choice(yhq_qoidalari))
-                    
+                        if trafik >= 20:
+                            trafik -= 20
+                            print(random.choice(yhq_qoidalari))
+                        else:
+                            print("Sizda mb mavjud emas! Enternet paket sotib oling!")
+
                     elif f == '3':
-                        print("Fitness haqida foydali ma'lumot... ")
+                        print("Kuting... ")
                         time.sleep(3)
-                        print(random.choice(fitnes_malumotlari))
+                        if trafik >= 20:
+                            trafik -= 20
+                            print(random.choice(fitnes_malumotlari))
+                        else:
+                            print("Sizda mb mavjud emas! Enternet paket sotib oling!")
                     
                     elif f == '4':
-                        print("Yaxshi kayfiyat ulashuvchi so'z... ")
+                        print("Kuting... ")
                         time.sleep(3)
-                        print(random.choice(positive_words))
+                        if trafik >= 20:
+                            trafik -= 20
+                            print(random.choice(positive_words))
+                        else:
+                            print("Sizda mb mavjud emas! Enternet paket sotib oling!")
                     
                     elif f == '5':
-                        print("Donishmand maslahati... ")
+                        print("Kuting... ")
                         time.sleep(3)
-                        print(random.choice(donishmand_maslahatlari))
+                        if trafik >= 20:
+                            trafik -= 20
+                            print(random.choice(donishmand_maslahatlari))
+                        else:
+                            print("Sizda mb mavjud emas! Enternet paket sotib oling!")
                     
                     elif f == '6':
-                        print("Mazali taom tayyorlash... ")
+                        print("Kuting... ")
                         time.sleep(3)
-                        print(random.choice(taomlar_retsepti))
-                    
+                        if trafik >= 20:
+                            trafik -= 20
+                            print(random.choice(taomlar_retsepti))
+                        else:
+                            print("Sizda mb mavjud emas! Enternet paket sotib oling!")
+
                     elif f == '7':
-                        print("Mativatsiya keremi... ")
+                        print("Kuting... ")
                         time.sleep(3)
-                        print(random.choice(motivations))
+                        if trafik >= 20:
+                            trafik -= 20
+                            print(random.choice(motivations))
 
                     elif f == '8':
                         break
                     else:
                         print("Noto'g'ri buyruq! qayta o'rinib ko'ring")
+            if a == '5':
+                print("Kuting... ")
+                time.sleep(3)
+                if trafik >= 20:
+                    trafik -= 20
+                    print(random.choice(yangiliklar))
+                else:
+                    print("Sizda mb mavjud emas! Enternet paket sotib oling!")
+            
+            if a == '6':
+                print("kuting... ")
+                time.sleep(3)
+                if trafik >= 20:
+                    trafik -= 20
+                    shahar_nomi = input("shahar nomini kiriting: ")
+                    print("Kuting... ")
+                    time.sleep(2)
+                    print(ob_havo.ob_havo(shahar_nomi))
+                else:
+                    print("Sizda mb mavjud emas! Enternet paket sotib oling!")
+            
+            if a == '7':
+                print("Kuting... ")
+                time.sleep(3)
+                if trafik >= 20:
+                    trafik -= 20
+                    print(random.choice(astrology_facts))
+                else:
+                    print("Sizda mb mavjud emas! Enternet paket sotib oling!")
 
 
 
 
             
-            elif a == 11:
+            elif a == '11':
                 break
-    elif move == 3:
+    elif move == '3':
         print("Dastur tugadi!")       
         break
